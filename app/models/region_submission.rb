@@ -324,11 +324,11 @@ class RegionSubmission < ActiveRecord::Base
   end
 
   CSV_COLUMNS = [
-    'Response #', 'Source', 'Date', 'Region', 'Access', 'How are you connected','Why No Access', 'Address', 'Zip', 'Latitude', 'Longitude', 'Accuracy', 'Price Per Month', 'Download Speed', 'Upload Speed', 'Ping', 'Actual Price Per Mbps', 'Provider'
+    'Response #', 'Source', 'Date', 'Region', 'Access', 'How are you connected','Why No Access', 'Address', 'Zip', 'Latitude', 'Longitude', 'Price Per Month', 'Download Speed', 'Upload Speed', 'Ping', 'Actual Price Per Mbps', 'Provider'
   ]
 
   CSV_KEYS = [
-    :id, :source, :date, :region, :access, :connected_with,  :whynoaccess, :address,  :zip_code, :latitude, :longitude, :accuracy, :monthly_price, :actual_download_speed, :actual_upload_speed, :ping, :actual_price, :provider
+    :id, :source, :date, :region, :access, :connected_with,  :whynoaccess, :address,  :zip_code, :latitude, :longitude, :monthly_price, :actual_download_speed, :actual_upload_speed, :ping, :actual_price, :provider
   ]
 
   def self.csv_header
@@ -339,7 +339,7 @@ class RegionSubmission < ActiveRecord::Base
 
   def to_csv_row
     CSV::Row.new(CSV_KEYS, [id, source, test_date.strftime('%B %d, %Y'), region, access, connected_with, whynoaccess, address,
-      zip_code, latitude, longitude, accuracy, monthly_price, actual_down_speed,
+      zip_code, latitude, longitude, monthly_price, actual_down_speed,
       actual_upload_speed, ping, actual_price, provider])
   end
 
